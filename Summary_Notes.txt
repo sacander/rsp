@@ -1,0 +1,12 @@
+Linked Lists
+- Singly linked lists have pointers to next node
+- Doubly linked lists have pointers to next and previous nodes
+- May use runner where two pointers iterate simultaneously
+
+Binary Tree
+- Have left, right and parent pointers
+- Binary search trees good for searching
+- Balanced binary trees are optimal
+
+Graphs
+- 
