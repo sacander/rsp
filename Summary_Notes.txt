@@ -9,4 +9,69 @@ Binary Tree
 - Balanced binary trees are optimal
 
 Graphs
-- 
+- Implemented with adjacency matrices or lists
+- Breadth first search searches neighbouring nodes first using a queue
+- Depth first search searches one path first using an (implicit) stack via recursion
+
+Stacks/Queues
+- Stacks are last in first out (stack of plates)
+- Queues are first in first out (queue of people)
+- Can both be implemented with arrays/linked lists
+
+Heaps
+- Efficient implementation of priority queue (insert and extract min/max)
+- Partially ordered using a binary tree where child elements are all greater/smaller than parent
+- Binary tree can be implicitly stored in an array with each layer doubling in size
+- To add elements, add to last position and swap with parent until high enough
+- Min/max can be removed by replacing with last element and swapping with children until low enough
+- These operations are linear with the height and logarithmic with number of nodes
+
+Hash Tables
+- Unordered map in C++
+- Map keys to values using a hash function
+- Constant time read/write operations in average case, linear in worst case
+
+Merge Sort
+- Splits array in half and recursively calls mergesort until only single elements are left
+- Sorted smaller arrays are merged together by taking the smallest element of each sorted array repeatedly
+- Merging is linear with with the number of elements and the recursion tree is log n deep
+- Overall time complexity is n log n
+- Linear space complexity as subarrays need to be created in each call
+
+Quick Sort
+- Randomly selects an element and swaps all lower elements to left and higher elements to right
+- On average, there will be log n recursive calls, with linear work for each partition
+- Average case time is n log n with log n space for calls on the stack
+- Worst case time is n^2 with n space for calls on the stack
+
+Tries
+
+
+Vector Amortised Time
+
+
+Bit Manipulation
+
+
+Singleton Design Pattern
+
+
+Factory Design Pattern
+
+
+Union-Find
+
+
+Quick Select
+
+
+Balanced Binary Search Tree (AVL, Red Black Trees)
+
+
+Minimum Spanning Tree
+
+
+Dijkstra's Shortest Path
+
+
+Bellman-Ford Pathfinding
