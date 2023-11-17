@@ -48,16 +48,23 @@ Tries
 
 
 Vector Amortised Time
-
+- Incorporates the linear time required to double the size of a vector and the constant time for most operations
+- When inserting n elements, the vector doubles at sizes 1, 2, 4, ..., n in linear time
+- This is equal to n + n/2 + n/4 + ... + 1 and is approximately equal to 2n
+- Amortised (average) time to insert one element is constant
 
 Bit Manipulation
 
 
 Singleton Design Pattern
-
+- Object with only one instance and global access
+- Sometimes undesirable 'anti-pattern' and can interfere with unit testing
+- Create a private static instance, public static getter that initialises it if necessary, private constructors and delete the copy constructor
 
 Factory Design Pattern
-
+- Interface for creating instances of a class
+- Pass in specific type and the factory object will create the child object of the correct type
+- Takes responsibility of object instantiation from the client program into the factory class
 
 Union-Find
 
