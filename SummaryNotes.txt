@@ -90,8 +90,17 @@ Quickselect
 - If index of pivot is more than k, recursively calls on the left half and vice versa until index of pivot is equal to k
 - Worst case complexity is still O(n^2) but expected case is reduced from O(n log n) to O(n)
 
-Balanced Binary Search Tree (AVL, Red Black Trees)
-- 
+Balanced Binary Search Trees
+- Rotations can be left or right and switch the order of parents and an inside child
+- AVL trees keep track of subtree heights so balance (left height - right height) can be calculated
+- Balance must stay between -1 and 1
+- When element inserted, perform rotations to rebalance if necessary and recursively continue up tree until root or balance is 0
+- Red-black trees are less strict but require less memory and rebalance faster
+- All nodes are labeled as red or black, where root nodes and null leaves are black
+- Every red node must have 2 black children and every node to leaf path must have the same number of black children
+- New nodes are inserted as red leaves which may cause a red violation
+- If both the parent and uncle are red, then swap colours of parent/uncle and their parent and then check if that causes a new violation
+- If parent is red but uncle is black, then rotations are performed based on side of P then N and colours swapped for last rotation
 
 Minimum Spanning Tree
 - Tree of all vertices in graph with minimum total weight (n vertices and m edges)
