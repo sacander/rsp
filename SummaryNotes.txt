@@ -11,7 +11,11 @@ Binary Tree
 Graphs
 - Implemented with adjacency matrices or lists
 - Breadth first search searches neighbouring nodes first using a queue
+- BFS gives path with least edges/vertices and can be performed faster by searching from both the start and end nodes
 - Depth first search searches one path first using an (implicit) stack via recursion
+- DFS tree only contains back edges if there is a cycle
+- Articulation vertices can be found from DFS tree if they are non-leaf nodes with back edges in descendants
+- Reverse order in which vertices are processed gives a topological sort
 
 Stacks/Queues
 - Stacks are last in first out (stack of plates)
@@ -34,18 +38,20 @@ Hash Tables
 Merge Sort
 - Splits array in half and recursively calls mergesort until only single elements are left
 - Sorted smaller arrays are merged together by taking the smallest element of each sorted array repeatedly
-- Merging is linear with with the number of elements and the recursion tree is log n deep
-- Overall time complexity is n log n
+- Merging is linear with with the number of elements and the recursion tree is O(log n) deep
+- Overall time complexity is O(n log n)
 - Linear space complexity as subarrays need to be created in each call
 
 Quick Sort
 - Randomly selects an element and swaps all lower elements to left and higher elements to right
-- On average, there will be log n recursive calls, with linear work for each partition
-- Average case time is n log n with log n space for calls on the stack
-- Worst case time is n^2 with n space for calls on the stack
+- On average, there will be O(log n) recursive calls, with linear work for each partition
+- Average case time is O(n log n) with O(log n) space for calls on the stack
+- Worst case time is O(n^2) with O(n) space for calls on the stack
 
 Tries
-
+- Type of tree to represent strings
+- Each edge (or vertex) has a character and the path from the root to a leaf represents a string
+- Fast lookup of strings from prefixes
 
 Vector Amortised Time
 - Incorporates the linear time required to double the size of a vector and the constant time for most operations
@@ -54,7 +60,10 @@ Vector Amortised Time
 - Amortised (average) time to insert one element is constant
 
 Bit Manipulation
-
+- AND (&) OR (|) NOT (~) XOR (^) are basic operators
+- Left shift (<<) essentially multiplies by 2 and right shift >> divides by 2 (losing last bit)
+- Negative number -K stored as two's complement where first bit is for sign and the remaining bits represent 2^(n-1) - K
+- Negating a number is same is inverting all bits and adding 1
 
 Singleton Design Pattern
 - Object with only one instance and global access
@@ -67,18 +76,39 @@ Factory Design Pattern
 - Takes responsibility of object instantiation from the client program into the factory class
 
 Union-Find
+- Represents a set partition of elements
+- Allows efficiency for both merging subsets (union) and checking which subset an element is in (find)
+- Represents subsets as an (implicit) backwards tree using an array of indices, an array of subset sizes and number of elements 
+- Each element has a pointer to a parent with a root node defining a subset
+- Find is implemented by traversing parent pointers to root
+- Union is implemented by making root of smaller subtree the child of the other root
+- Height is at most log n and so union and find can be done in logarithmic time
 
-
-Quick Select
-
+Quickselect
+- Finds the kth smallest element in an unordered list
+- Implements quicksort but discards second half
+- If index of pivot is more than k, recursively calls on the left half and vice versa until index of pivot is equal to k
+- Worst case complexity is still O(n^2) but expected case is reduced from O(n log n) to O(n)
 
 Balanced Binary Search Tree (AVL, Red Black Trees)
-
+- 
 
 Minimum Spanning Tree
-
+- Tree of all vertices in graph with minimum total weight (n vertices and m edges)
+- Prim's algorithm adds smallest weight edge between current tree and a non-tree vertex
+- Can run in O(n^2) time or O(m + n log n) using sophisticated priority queues
+- Kruskal's algorithm adds smallest weight edges between unconnected components
+- Basic implementation uses BFS or DFS to check components giving an mn time algorithm
+- Connected components can be stored in union-find allowing O(m log m) time which is faster for sparse graphs
 
 Dijkstra's Shortest Path
+- Finds the shortest path from one vertex to every other vertex on positive weighted graphs
+- Repeatedly adds a new vertex with the shortest distance from the origin
+- Runs in O(n^2) time as n vertices are added with linear work to find the smallest each time
 
-
-Bellman-Ford Pathfinding
+Bellman-Ford Shortest Path
+- Slower than Dijkstra but works on negative edge weights and can detect negative cycles
+- Assumes all path lengths are infinite and then iteratively relaxes
+- For each vertex, updates path distance for outgoing edge to relax all edges in each iteration
+- For an n vertex graph, paths only have to be relaxed n-1 times so any more iterations means a negative cycle
+- Average and worst case time complexity is O(mn)
