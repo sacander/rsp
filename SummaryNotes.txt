@@ -14,7 +14,7 @@ Graphs
 - BFS gives path with least edges/vertices and can be performed faster by searching from both the start and end nodes
 - Depth first search searches one path first using an (implicit) stack via recursion
 - DFS tree only contains back edges if there is a cycle
-- Articulation vertices can be found from DFS tree if they are non-leaf nodes with back edges in descendants
+- Articulation vertices can be found from DFS tree if they are non-leaf nodes without back edges from descendants
 - Reverse order in which vertices are processed gives a topological sort
 
 Stacks/Queues
