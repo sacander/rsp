@@ -130,6 +130,3 @@ struct TreeNode {
         return root;
     }
 };
-
-// binary tree deletions check root still
-// dijkstra's priority queue
